@@ -1,0 +1,55 @@
+.create-invoice-modal {
+    padding: 60px 10px;
+    width: 690px;
+}
+
+.close {
+    font-size: 20px;
+}
+
+.selected-products {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.list-selected-products {
+    margin-top: 30px;
+}
+
+.value {
+    width: 20px;
+    text-align: center;
+}
+
+.icons {
+    font-size: 10px;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.discount-field {
+    width: 60px;
+    text-align: center;
+}
+
+.cancel-purchase {
+    cursor: pointer;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+
+.content {
+    margin-top: 30px;
+}

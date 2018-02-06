@@ -1,0 +1,19 @@
+{
+  "name": "interviewed-angular",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.5",
+    "font-awesome": "^4.7.0"
+  }
+}

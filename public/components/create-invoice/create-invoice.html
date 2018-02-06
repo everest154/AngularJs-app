@@ -1,0 +1,121 @@
+<div class="create-invoice-modal">
+    <div class="clearfix">
+        <i class="fa fa-times close pull-right" aria-hidden="true" ng-click="vm.closeDialog()"></i>
+    </div>
+    <input type="button" ng-if="" class="btn-primary btn-new-customer" value="New product"
+           ng-click="">
+    <input type="button" ng-if="" class="btn-primary btn-new-customer" value="Create"
+           ng-click="">
+    <input type="button" ng-if="!vm.value" class="btn-primary pull-right btn-new-customer" value="New customer"
+           ng-click="vm.changeValue()">
+    <input type="button" ng-if="vm.value"  class="btn-primary pull-right btn-new-customer" value="Create"
+           ng-click="vm.changeValue(); vm.createNewCustomer()">
+    <div class="new-customer">
+        <form class="customer" name="vm.registerCustomerForm" ng-if="vm.value">
+            <md-input-container class="md-block">
+                <label for="firstName">Name</label>
+                <input name="first_name"
+                       id="firstName"
+                       ng-model="vm.allDataCustomers.name"
+                       maxlength="55"
+                       autocomplete="off"
+                       required>
+                <div ng-messages="vm.registerCustomerForm.first_name.$error">
+                    <div ng-message="required">This field can't be empty</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+                <label for="address">Adress</label>
+                <input name="address_value"
+                       id="address"
+                       ng-model="vm.allDataCustomers.address"
+                       maxlength="55"
+                       autocomplete="off"
+                       required>
+                <div ng-messages="vm.registerCustomerForm.address_value.$error">
+                    <div ng-message="required">This field can't be empty</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label for="phoneNumber">Phone</label>
+                <input name="phone"
+                       id="phoneNumber"
+                       ui-mask-placeholder
+                       ui-mask-placeholder-char="_"
+                       type="tel"
+                       ng-model="vm.allDataCustomers.phone"
+                       autocomplete="off"
+                       required>
+                <div ng-messages="vm.registerCustomerForm.phone.$error">
+                    <div ng-message="required">This field can't be empty</div>
+                </div>
+            </md-input-container>
+        </form>
+    </div>
+    <form class="list" name="vm.createInvoiceForm">
+        <div>
+            <label for="customers">Customers list:</label>
+            <select class="select-style" id="customers" ng-model="vm.allData.customer"
+                    ng-options="customer as customer.name for customer in vm.Allcustomers" required>
+            </select>
+            <div class="content">
+                <div>
+                    <table class="table table-bordered list-products">
+                        <thead>
+                        <tr>
+                            <th>All products</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="items in vm.allProducts track by $index"
+                            ng-click="vm.getSelectedProduct(items,$index)">
+                            <td>{{items.name}}</td>
+                            <td>{{items.price}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="list-selected-products">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Selected products</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="selectedItems in vm.selectedProducts track by $index">
+                            <td layout="row" layout-align="space-between none">{{selectedItems.name}}
+                                <div>
+                                    <button ng-click="vm.decreaseValue(selectedItems)"
+                                            ng-disabled="selectedItems.count <= 1"
+                                            type="button">
+                                        <i class="fa fa-minus icons" aria-hidden="true"></i>
+                                    </button>
+                                    <input class="value" title="count" value="{{selectedItems.count}}" type="text">
+                                    <button ng-click="vm.raiseValue(selectedItems)"
+                                            type="button">
+                                        <i class="fa fa-plus icons" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            <td>{{(selectedItems.price * selectedItems.count).toFixed(2)}} <span
+                                    ng-click="vm.cancelPurchase(selectedItems,$index)"
+                                    class="cancel-purchase pull-right"><i
+                                    class="fa fa-times" aria-hidden="true"></i></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>YOUR DISCOUNT: <span class="pull-right">%</span><input type="number" min="0" max="99"
+                                                                           ng-model="vm.valueDiscount"
+                                                                           class="discount-field pull-right"/></h3>
+                <h3>TOTAL: <span class="pull-right">{{vm.getTotalDiscount()}}</span></h3>
+                <div class="">
+                    <button type="button" class="btn btn-info" ng-click="vm.createNewInvoice()">Create</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

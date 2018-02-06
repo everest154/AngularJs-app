@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./Styles/app.css">
+    <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/toastr/toastr.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" ui-sref="invoices">Invoice App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ui-sref="invoices"><a href="#">Invoices</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <ui-view></ui-view>
+</div> <!-- /container -->
+
+
+<script type="text/javascript" src="lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="./js/lib/jquery/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="lib/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="lib/angular-messages/angular-messages.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.js"></script>
+
+
+
+<script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
+
+
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="core/core.module.js"></script>
+<script type="text/javascript" src="core/config.js"></script>
+
+<!--Services-->
+<script type="text/javascript" src="services/customers.service.js"></script>
+<script type="text/javascript" src="services/invoices.service.js"></script>
+<script type="text/javascript" src="services/products.service.js"></script>
+<script type="text/javascript" src="core/blocks/services/services.module.js"></script>
+
+<!--factories-->
+<script type="text/javascript" src="core/blocks/factories/factories.module.js"></script>
+<script type="text/javascript" src="factories/urlRequest.js"></script>
+
+<!--controllers-->
+<script type="text/javascript" src="templates/invoices/invoices.controller.js"></script>
+<script type="text/javascript" src="templates/customers/customers.controller.js"></script>
+<script type="text/javascript" src="templates/products/products.controller.js"></script>
+
+<script type="text/javascript" src="components/create-invoice/create-invoice.js"></script>
+</body>
+</html>
